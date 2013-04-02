@@ -9,6 +9,10 @@ L3:
 	Grasping: Grabs and Retreives an object using the arm with an inputted coordinate point.
 	InverseKinematics: Implements basic arm movement commands in a 3D world frame using the keyboard.
 
+L4:
+	DebugViewer: Robot hosts a live webserver streaming out its video feed in normal RGB colors, HSV values, and a binary Grayscale with blob tracking
+	ObjectDetection: Searches and retreives an object after recognizing and clicking it through the DebugViewer while in its starting pose.
+		
 Programmed by:
 	Jason Shrand
 	James Steinberg

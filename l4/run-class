@@ -1,0 +1,34 @@
+#!/bin/bash
+
+make_silent="make --silent --no-print-directory"
+
+#package=`$make_silent show-package`
+#java=`$make_silent show-java`
+#flags=`$make_silent show-run-java-flags`
+
+args=("$@")
+args=${args[@]:1}
+
+class=$1
+if [ "$class" == "${class##*.}" ]; then
+#  class=${package}.${class}
+  cmd="`$make_silent show-run-java-with-flags-and-package`.$class $args"
+else
+#  package=${class%.*}
+  cmd="`$make_silent show-run-java-with-flags` $class $args"
+fi
+
+#echo "package: " $package
+#echo "class: " $class
+#echo "java: " $java
+#echo "args: " $args
+
+#$make_silent $package.package-make
+#$make_silent $class.class
+
+#$java $flags $class $args
+
+echo $cmd
+
+bash -c "$cmd"
+
